@@ -1,0 +1,5 @@
+.vscode/
+.repo/
+build/
+sdkconfig
+sdkconfig.old

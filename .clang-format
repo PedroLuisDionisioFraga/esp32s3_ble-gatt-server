@@ -1,0 +1,26 @@
+BasedOnStyle: Microsoft
+IndentWidth: 2
+ColumnLimit: 120
+ContinuationIndentWidth: 2
+IndentCaseLabels: true
+AlignEscapedNewlines: LeftWithLastLine
+SpacesBeforeTrailingComments: 2
+AlignConsecutiveMacros: true
+BinPackArguments: false
+AllowAllArgumentsOnNextLine: false
+SortIncludes: CaseSensitive
+#AllowShortLoopsOnASingleLine: true
+InsertNewlineAtEOF: true
+IncludeBlocks: Regroup  # Regrouped with blank lines between categories
+#AllowShortIfStatementsOnASingleLine: AllIfsAndElse  # Short if in one line
+#IncludeIsMainRegex: '^$'  # Disable main header detection (won't put "ble.h" at top for ble.c)
+# Import Sorting
+IncludeCategories:
+  - Regex: '^<.*\.h>'    # Standard library headers
+    Priority: 1
+  - Regex: '^".*\.h"'       # Project-specific headers
+    Priority: 2
+  - Regex: '.*'           # Other includes
+    Priority: 3
+BraceWrapping:
+  AfterCaseLabel: true

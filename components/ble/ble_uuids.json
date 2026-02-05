@@ -1,0 +1,100 @@
+{
+  "services": {
+    "0x00FE": {
+      "name": "Sensor Service",
+      "description": "Serviço de sensores: temperatura, threshold de alerta e umidade"
+    },
+    "0x00FD": {
+      "name": "Control Service",
+      "description": "Serviço de controle: brilho do LED, comandos e velocidade do ventilador"
+    },
+    "0x00FC": {
+      "name": "Device Info Service",
+      "description": "Serviço de informações do dispositivo: versão de firmware, reset e nome"
+    },
+    "0xED58": {
+      "name": "Air Fryer Advertising Service",
+      "description": "UUID usado no advertising data"
+    },
+    "0xAFBD": {
+      "name": "Air Fryer Scan Response Service",
+      "description": "UUID usado no scan response data"
+    }
+  },
+  "characteristics": {
+    "0xFF01": {
+      "name": "Temperature",
+      "service": "0x00FE",
+      "description": "Temperatura atual em Celsius (read-only)",
+      "permissions": "read"
+    },
+    "0xFF02": {
+      "name": "Temp Threshold",
+      "service": "0x00FE",
+      "description": "Limiar de alerta de temperatura 0-100°C (write-only)",
+      "permissions": "write"
+    },
+    "0xFF03": {
+      "name": "Humidity",
+      "service": "0x00FE",
+      "description": "Percentual de umidade, calibração (read-write)",
+      "permissions": "read-write"
+    },
+    "0xFF11": {
+      "name": "Brightness",
+      "service": "0x00FD",
+      "description": "Nível de brilho do LED 0-255 (read-only)",
+      "permissions": "read"
+    },
+    "0xFF12": {
+      "name": "Command",
+      "service": "0x00FD",
+      "description": "Comando de controle: 0x01=RUN, 0x02=STOP, 0x03=IDLE (write-only)",
+      "permissions": "write"
+    },
+    "0xFF13": {
+      "name": "Fan Speed",
+      "service": "0x00FD",
+      "description": "Velocidade do ventilador 0-100% (read-write)",
+      "permissions": "read-write"
+    },
+    "0xFF21": {
+      "name": "FW Version",
+      "service": "0x00FC",
+      "description": "String de versão do firmware (read-only)",
+      "permissions": "read"
+    },
+    "0xFF22": {
+      "name": "Reset",
+      "service": "0x00FC",
+      "description": "Escreva 0xAA para resetar o dispositivo (write-only)",
+      "permissions": "write"
+    },
+    "0xFF23": {
+      "name": "Device Name",
+      "service": "0x00FC",
+      "description": "Nome BLE do dispositivo (read-write)",
+      "permissions": "read-write"
+    }
+  },
+  "descriptors": {
+    "0x2901": {
+      "name": "Characteristic User Description",
+      "description": "Descritor padrão BLE para nome da característica"
+    },
+    "0x2902": {
+      "name": "Client Characteristic Configuration",
+      "description": "Descritor padrão BLE para configuração de notificações/indicações"
+    }
+  },
+  "standard_uuids": {
+    "0x1800": "Generic Access",
+    "0x1801": "Generic Attribute",
+    "0x180A": "Device Information",
+    "0x180F": "Battery Service",
+    "0x181A": "Environmental Sensing",
+    "0x2A00": "Device Name",
+    "0x2A01": "Appearance",
+    "0x2A29": "Manufacturer Name String"
+  }
+}
