@@ -1,0 +1,29 @@
+name: "ble-gatt-server"
+version: "0.1.0"
+license: "MIT"
+description: "Callback-based BLE GATT server abstraction over the ESP-IDF Bluedroid stack: define services and characteristics with simple read/write handlers, no Bluedroid boilerplate."
+url: "https://github.com/PedroLuisDionisioFraga/esp32s3_ble-gatt-server"
+repository: "https://github.com/PedroLuisDionisioFraga/esp32s3_ble-gatt-server"
+documentation: "https://github.com/PedroLuisDionisioFraga/esp32s3_ble-gatt-server/tree/main/README.md"
+issues: "https://github.com/PedroLuisDionisioFraga/esp32s3_ble-gatt-server/issues"
+targets:
+  - esp32
+  - esp32s2
+  - esp32s3
+  - esp32c3
+  - esp32c5
+  - esp32c6
+  - esp32h2
+  - esp32p4
+tags:
+  - esp32
+  - ble
+  - bluetooth
+  - bluetooth-low-energy
+  - gatt
+  - gatt-server
+  - bluedroid
+examples:
+  - path: examples/basic
+dependencies:
+  idf: ">=6.0.0"

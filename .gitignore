@@ -2,6 +2,9 @@
 .repo/
 build/
 .claude/
+dist/
+managed_components/
 
 sdkconfig
 sdkconfig.old
+dependencies.lock
