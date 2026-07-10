@@ -11,7 +11,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install clang-format
-        run: sudo apt-get update && sudo apt-get install -y clang-format
+        # apt ships an older clang-format that cannot parse newer .clang-format
+        # options (e.g. AlignEscapedNewlines: LeftWithLastLine, added in v21).
+        run: pip install "clang-format>=21"
 
       - name: Check formatting
         run: |
