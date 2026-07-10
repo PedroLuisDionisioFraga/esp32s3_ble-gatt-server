@@ -140,7 +140,6 @@ static void ble_free_scan_rsp_data(void)
   if (s_raw_scan_rsp_data == NULL)
     return;
 
-
   free(s_raw_scan_rsp_data);
   s_raw_scan_rsp_data = NULL;
 }
