@@ -22,10 +22,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # ESP-IDF resolves the example's override_path dependency by directory
+          # name, so the repo must live in a folder named after the component
+          # (the default checkout folder is the repo name, esp32s3_ble-gatt-server).
+          path: ble-gatt-server
 
       - name: Build ${{ matrix.example }} example (IDF ${{ matrix.idf_ver }}, ${{ matrix.idf_target }})
         uses: espressif/esp-idf-ci-action@v1
         with:
           esp_idf_version: ${{ matrix.idf_ver }}
           target: ${{ matrix.idf_target }}
-          path: examples/${{ matrix.example }}
+          path: ble-gatt-server/examples/${{ matrix.example }}
