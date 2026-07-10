@@ -18,13 +18,13 @@
 #include <esp_gatt_common_api.h>
 #include <esp_gatt_defs.h>  // Implements GATT server API definitions.
 #include <esp_log.h>
+#include <nvs_flash.h>  // NVS is required by the BT controller for PHY calibration data.
 #include <string.h>
 
 #include "ble-gap.h"
 #include "ble-gatt.h"
 #include "ble-gatts.h"
 #include "ble-return-code.h"
-#include "nvm_driver.h"
 
 static const char *TAG = "BLE";
 
@@ -58,7 +58,13 @@ ble_return_code_t ble_server_init(const ble_server_config_t *config)
   s_config = config;
   esp_err_t ret;
 
-  nvm_init();
+  ret = nvs_flash_init();
+  if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND)
+  {
+    ESP_ERROR_CHECK(nvs_flash_erase());
+    ret = nvs_flash_init();
+  }
+  ESP_ERROR_CHECK(ret);
 
   ESP_ERROR_CHECK(esp_bt_controller_mem_release(ESP_BT_MODE_CLASSIC_BT));
 

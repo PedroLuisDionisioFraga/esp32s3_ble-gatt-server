@@ -48,7 +48,7 @@ esp_err_t ble_gap_stop_adv(void);
  * @param timeout Supervision timeout
  * @return ESP_OK on success, error code otherwise
  */
-esp_err_t ble_gap_update_connection_params(uint8_t *bda, uint16_t min_interval, uint16_t max_interval,
-                                           uint16_t latency, uint16_t timeout);
+esp_err_t ble_gap_update_connection_params(uint8_t *bda, uint16_t min_interval, uint16_t max_interval, uint16_t latency,
+                                           uint16_t timeout);
 
 #endif  // BLE_GAP_H
