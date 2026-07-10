@@ -46,11 +46,11 @@ typedef struct
 // Internal structure to track service state
 typedef struct
 {
-  uint16_t service_handle;                              // Service handle assigned by the stack
-  ble_service_t *def;                                   // Pointer to user service definition
+  uint16_t service_handle;                                      // Service handle assigned by the stack
+  ble_service_t *def;                                           // Pointer to user service definition
   ble_char_handle_t char_handles[MAX_CHARACTERISTICS_PER_SVC];  // Characteristic handles for this service
-  size_t registered_chars;                              // Number of characteristics registered so far
-  size_t pending_descr_char;                            // Index of char waiting for descriptor registration
+  size_t registered_chars;                                      // Number of characteristics registered so far
+  size_t pending_descr_char;                                    // Index of char waiting for descriptor registration
 } ble_service_state_t;
 
 // Module state
@@ -95,7 +95,9 @@ esp_err_t ble_gatts_init(ble_service_t *services, size_t count)
   {
     if (services[i].characteristic_count > MAX_CHARACTERISTICS_PER_SVC)
     {
-      ESP_LOGE(GATTS_TAG, "Service '%s' has too many characteristics (max %d)", services[i].name,
+      ESP_LOGE(GATTS_TAG,
+               "Service '%s' has too many characteristics (max %d)",
+               services[i].name,
                MAX_CHARACTERISTICS_PER_SVC);
       return ESP_ERR_NO_MEM;
     }
@@ -218,7 +220,10 @@ static void add_char_to_service(ble_service_state_t *state, size_t char_idx)
   if (ret != ESP_OK)
     ESP_LOGE(GATTS_TAG, "Add char failed: %s", esp_err_to_name(ret));
   else
-    ESP_LOGI(GATTS_TAG, "Adding characteristic '%s' (UUID: 0x%04X) to service '%s'", ch->name, ch->uuid,
+    ESP_LOGI(GATTS_TAG,
+             "Adding characteristic '%s' (UUID: 0x%04X) to service '%s'",
+             ch->name,
+             ch->uuid,
              state->def->name);
 }
 
@@ -233,7 +238,9 @@ static void advance_to_next_char_or_service(ble_service_state_t *state)
   }
   else
   {
-    ESP_LOGI(GATTS_TAG, "All %d characteristics registered for service '%s'", state->registered_chars,
+    ESP_LOGI(GATTS_TAG,
+             "All %d characteristics registered for service '%s'",
+             state->registered_chars,
              state->def->name);
     s_current_service_idx++;
     create_next_service();
@@ -309,8 +316,11 @@ static void gatts_event_handler(esp_gatts_cb_event_t event, esp_gatt_if_t gatts_
         state->char_handles[idx].char_handle = param->add_char.attr_handle;
         state->char_handles[idx].def = &state->def->characteristics[idx];
 
-        ESP_LOGI(GATTS_TAG, "Characteristic added: '%s' handle=%d (service '%s')",
-                 state->def->characteristics[idx].name, param->add_char.attr_handle, state->def->name);
+        ESP_LOGI(GATTS_TAG,
+                 "Characteristic added: '%s' handle=%d (service '%s')",
+                 state->def->characteristics[idx].name,
+                 param->add_char.attr_handle,
+                 state->def->name);
 
         // Add User Description descriptor if description is provided
         ble_characteristic_t *current_ch = &state->def->characteristics[idx];
@@ -364,8 +374,10 @@ static void gatts_event_handler(esp_gatts_cb_event_t event, esp_gatt_if_t gatts_
       {
         state->char_handles[state->pending_descr_char].descr_handle = param->add_char_descr.attr_handle;
 
-        ESP_LOGI(GATTS_TAG, "Descriptor added for '%s' handle=%d (service '%s')",
-                 state->def->characteristics[state->pending_descr_char].name, param->add_char_descr.attr_handle,
+        ESP_LOGI(GATTS_TAG,
+                 "Descriptor added for '%s' handle=%d (service '%s')",
+                 state->def->characteristics[state->pending_descr_char].name,
+                 param->add_char_descr.attr_handle,
                  state->def->name);
 
         state->registered_chars++;

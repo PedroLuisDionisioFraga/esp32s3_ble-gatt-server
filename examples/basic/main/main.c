@@ -25,9 +25,9 @@ static bool s_led_state = false;
 // ============================================================================
 
 // -- Sensor Service data --
-static uint8_t temperature_value = 25;   // Temperature in Celsius (read-only)
-static uint8_t temp_threshold = 30;      // Temperature alert threshold (write-only)
-static uint8_t humidity_value = 60;      // Humidity percentage (read-write)
+static uint8_t temperature_value = 25;  // Temperature in Celsius (read-only)
+static uint8_t temp_threshold = 30;     // Temperature alert threshold (write-only)
+static uint8_t humidity_value = 60;     // Humidity percentage (read-write)
 
 // -- Control Service data --
 static uint8_t led_brightness = 105;     // LED brightness (read-only)
@@ -36,8 +36,8 @@ static uint8_t fan_speed = 0;            // Fan speed 0-100% (read-write)
 
 // -- Device Info Service data --
 static const char firmware_version[] = "1.0.0";  // Firmware version (read-only)
-static uint8_t reset_flag = 0;                    // Reset command (write-only)
-static char device_name[16] = "AIR-FRYER";        // Device name (read-write)
+static uint8_t reset_flag = 0;                   // Reset command (write-only)
+static char device_name[16] = "AIR-FRYER";       // Device name (read-write)
 
 // ============================================================================
 // Sensor Service Handlers
