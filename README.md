@@ -87,7 +87,7 @@ The component is divided into layers that abstract away ESP-IDF complexity:
 ### Internal Modules (You don't need to use these directly)
 
 | Module          | Description                                                  |
-|-----------------|--------------------------------------------------------------|
+| --------------- | ------------------------------------------------------------ |
 | **ble.c**       | Main entry point, initializes BT controller and Bluedroid    |
 | **ble-gap.c**   | Generic Access Profile - Manages advertising and connections |
 | **ble-gatt.c**  | Generic Attribute Profile - MTU configuration                |
@@ -187,9 +187,11 @@ ble_return_code_t ble_server_init(const ble_server_config_t *config);
 ```
 
 **Parameters:**
+
 - `config`: Pointer to server configuration (must remain valid during operation)
 
 **Returns:**
+
 - `BLE_SUCCESS (0)`: Success
 - `BLE_ALREADY_INITIALIZED`: Server already running
 - `BLE_INVALID_CONFIG`: NULL config, device name, or no services defined
@@ -206,6 +208,7 @@ ble_return_code_t ble_server_stop();
 ```
 
 **Returns:**
+
 - `BLE_SUCCESS (0)`: Success
 - `BLE_NOT_INITIALIZED`: Server not running
 
@@ -220,6 +223,7 @@ bool ble_server_is_connected();
 ```
 
 **Returns:**
+
 - `true`: Client connected
 - `false`: No client connected
 
@@ -272,10 +276,12 @@ typedef int (*ble_char_read_t)(uint8_t *out_buffer, size_t max_len);
 ```
 
 **Parameters:**
+
 - `out_buffer`: Buffer to fill with data
 - `max_len`: Maximum buffer size
 
 **Returns:**
+
 - Number of bytes written (≥ 0), or negative on error
 
 #### Write Handler
@@ -285,16 +291,18 @@ typedef ble_char_error_t (*ble_char_write_t)(const uint8_t *in_data, size_t len)
 ```
 
 **Parameters:**
+
 - `in_data`: Pointer to received data
 - `len`: Length of received data
 
 **Returns:**
+
 - `BLE_CHAR_OK` on success, or error code
 
 ### Characteristic Types Summary
 
 | Type | Read Handler | Write Handler | Use Case |
-|------|-------------|---------------|----------|
+| ------ | ------------- | --------------- | ---------- |
 | **Read-only** | ✅ Defined | ❌ NULL | Sensors, status |
 | **Write-only** | ❌ NULL | ✅ Defined | Commands, settings |
 | **Read/Write** | ✅ Defined | ✅ Defined | Configurable values |
@@ -302,7 +310,7 @@ typedef ble_char_error_t (*ble_char_write_t)(const uint8_t *in_data, size_t len)
 ## 🧪 Examples
 
 | Example | Description |
-|---------|-------------|
+| --------- | ------------- |
 | [basic](examples/basic) | Full "air fryer" device: 3 services, 9 characteristics (sensors, control, device info). |
 
 Create a project from the example:
@@ -316,7 +324,7 @@ idf.py create-project-from-example "pedroluisdionisiofraga/ble-gatt-server:basic
 ### Server Return Codes (`ble_return_code_t`)
 
 | Code | Value | Description |
-|------|-------|-------------|
+| ------ | ------- | ------------- |
 | `BLE_SUCCESS` | 0 | Operation successful |
 | `BLE_GENERIC_ERROR` | 1 | Generic error |
 | `BLE_ALREADY_INITIALIZED` | 2 | Server already running |
@@ -327,7 +335,7 @@ idf.py create-project-from-example "pedroluisdionisiofraga/ble-gatt-server:basic
 ### Characteristic Handler Codes (`ble_char_error_t`)
 
 | Code | Value | Description | When to Use |
-|------|-------|-------------|-------------|
+| ------ | ------- | ------------- | ------------- |
 | `BLE_CHAR_OK` | 0 | Success | Data accepted |
 | `BLE_CHAR_ERR_SIZE` | 1 | Invalid size | Wrong data length |
 | `BLE_CHAR_ERR_VALUE` | 2 | Invalid value | Value out of range |
@@ -339,7 +347,7 @@ idf.py create-project-from-example "pedroluisdionisiofraga/ble-gatt-server:basic
 ### Default Advertising Parameters
 
 | Parameter | Value | Description |
-|-----------|-------|-------------|
+| ----------- | ------- | ------------- |
 | Interval Min | 0x20 (20ms) | Minimum advertising interval |
 | Interval Max | 0x40 (40ms) | Maximum advertising interval |
 | Type | ADV_TYPE_IND | Connectable undirected |
@@ -351,7 +359,7 @@ idf.py create-project-from-example "pedroluisdionisiofraga/ble-gatt-server:basic
 ### GATT Configuration
 
 | Parameter | Value | Description |
-|-----------|-------|-------------|
+| ----------- | ------- | ------------- |
 | Max MTU | 500 bytes | Maximum Transmission Unit |
 | Max Services | 8 | Per server limit |
 | Max Characteristics | 16 | Per service limit |
@@ -366,8 +374,8 @@ Only ESP-IDF built-in components (no external dependencies):
 
 ## 👤 Author
 
-**Pedro Luis Dionísio Fraga**
-- Email: pedrodfraga@hotmail.com
+- [Pedro Luis Dionísio Fraga](https://pedro-fraga.vercel.app/)
+- Email: <pedrodfraga@hotmail.com>
 
 ## 📄 License
 

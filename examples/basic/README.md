@@ -31,7 +31,7 @@ The device advertises with the name **`ESP32-S3 BLE GATT Server`** and exposes *
 ### Sensor Service (`0x00FE`)
 
 | UUID | Name | Permissions | Description |
-|------|------|:-----------:|-------------|
+| ------ | ------ | :-----------: | ------------- |
 | `0xFF01` | Temperature | R | Current temperature in °C |
 | `0xFF02` | Temp Threshold | W | Alert threshold (0–100 °C) |
 | `0xFF03` | Humidity | R/W | Humidity % (calibration) |
@@ -39,7 +39,7 @@ The device advertises with the name **`ESP32-S3 BLE GATT Server`** and exposes *
 ### Control Service (`0x00FD`)
 
 | UUID | Name | Permissions | Description |
-|------|------|:-----------:|-------------|
+| ------ | ------ | :-----------: | ------------- |
 | `0xFF11` | Brightness | R | LED brightness level (0–255) |
 | `0xFF12` | Command | W | `0x01` RUN · `0x02` STOP · `0x03` IDLE |
 | `0xFF13` | Fan Speed | R/W | Fan speed (0–100 %) |
@@ -47,7 +47,7 @@ The device advertises with the name **`ESP32-S3 BLE GATT Server`** and exposes *
 ### Device Info Service (`0x00FC`)
 
 | UUID | Name | Permissions | Description |
-|------|------|:-----------:|-------------|
+| ------ | ------ | :-----------: | ------------- |
 | `0xFF21` | FW Version | R | Firmware version string |
 | `0xFF22` | Reset | W | Write `0xAA` to reboot |
 | `0xFF23` | Device Name | R/W | BLE device name |
