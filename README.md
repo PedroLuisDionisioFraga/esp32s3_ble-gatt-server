@@ -1,6 +1,12 @@
-# 📡 ble-gatt-server
+# 📡 BLE GATT SERVER
 
 [![Component Registry](https://components.espressif.com/components/pedroluisdionisiofraga/ble-gatt-server/badge.svg)](https://components.espressif.com/components/pedroluisdionisiofraga/ble-gatt-server)
+[![Build Examples](https://img.shields.io/github/actions/workflow/status/PedroLuisDionisioFraga/esp32s3_ble-gatt-server/build.yml?branch=main&label=builds)](https://github.com/PedroLuisDionisioFraga/esp32s3_ble-gatt-server/actions/workflows/build.yml)
+![GitHub repo size](https://img.shields.io/github/repo-size/PedroLuisDionisioFraga/esp32s3_ble-gatt-server)
+[![License](https://img.shields.io/github/license/PedroLuisDionisioFraga/esp32s3_ble-gatt-server)](LICENSE)
+![Targets](https://img.shields.io/badge/targets-ESP32%20%7C%20S2%20%7C%20S3%20%7C%20C3%20%7C%20C5%20%7C%20C6%20%7C%20H2%20%7C%20P4-blue)
+![ESP-IDF](https://img.shields.io/badge/ESP--IDF-%E2%89%A56.0-orange)
+<!-- ![Last commit](https://img.shields.io/github/last-commit/PedroLuisDionisioFraga/esp32s3_ble-gatt-server) -->
 
 Callback-based BLE GATT server abstraction over the ESP-IDF Bluedroid stack. Define services and characteristics with simple read/write handlers — no Bluedroid boilerplate.
 
