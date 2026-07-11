@@ -1,6 +1,6 @@
 dependencies:
   pedroluisdionisiofraga/ble-gatt-server:
-    version: "^0.1.0"
+    version: "^0.1.1"
     # # Build against the local component (repo root) instead of the published
     # # version — this is what lets CI test the code in the PR, not the Registry.
     # override_path: "../../../"
