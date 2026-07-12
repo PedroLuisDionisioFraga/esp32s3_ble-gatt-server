@@ -48,14 +48,14 @@ This component simplifies BLE development by providing a clean, callback-based A
 Add the component to your project from the [ESP Component Registry](https://components.espressif.com/components/pedroluisdionisiofraga/ble-gatt-server):
 
 ```bash
-idf.py add-dependency "pedroluisdionisiofraga/ble-gatt-server^0.1.0"
+idf.py add-dependency "pedroluisdionisiofraga/ble-gatt-server"
 ```
 
 Or add it manually to your `main/idf_component.yml`:
 
 ```yaml
 dependencies:
-  pedroluisdionisiofraga/ble-gatt-server: "^0.1.0"
+  pedroluisdionisiofraga/ble-gatt-server: "*"
 ```
 
 Bluetooth must be enabled in your project's `sdkconfig.defaults`:

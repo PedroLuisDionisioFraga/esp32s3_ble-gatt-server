@@ -46,14 +46,14 @@ Other useful commands:
 ## How consumers install it
 
 ```bash
-idf.py add-dependency "pedroluisdionisiofraga/ble-gatt-server^X.Y.Z"
+idf.py add-dependency "pedroluisdionisiofraga/ble-gatt-server"
 ```
 
 or in the project's `main/idf_component.yml`:
 
 ```yaml
 dependencies:
-  pedroluisdionisiofraga/ble-gatt-server: "^X.Y.Z"
+  pedroluisdionisiofraga/ble-gatt-server: "*"
 ```
 
 ## Common issues
