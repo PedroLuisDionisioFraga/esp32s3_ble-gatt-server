@@ -1,5 +1,5 @@
 name: "ble-gatt-server"
-version: "0.1.1"
+version: "0.1.2"
 license: "MIT"
 description: "Callback-based BLE GATT server abstraction over the ESP-IDF Bluedroid stack: define services and characteristics with simple read/write handlers, no Bluedroid boilerplate."
 url: "https://github.com/PedroLuisDionisioFraga/esp32s3_ble-gatt-server"
